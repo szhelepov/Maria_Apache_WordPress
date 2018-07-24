@@ -4,4 +4,6 @@
     name: "{{ item }}"
     state: present
     with_items: 
-      - apache2
+      - httpd
+      - httpd-devel
+      - openssl
