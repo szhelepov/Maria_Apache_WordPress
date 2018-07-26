@@ -1,9 +1,2 @@
 ---
-- name: Install Apache 
-  yum:
-    name: "{{ item }}"
-    state: present
-    with_items: 
-      - httpd
-      - httpd-devel
-      - openssl
+- include: setup.yml
