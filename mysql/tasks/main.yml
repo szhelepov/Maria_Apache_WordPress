@@ -1,4 +1,10 @@
 ---
+- name: Install MySql
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ mysql_packages }}"
+
 - name: Create mysql database
   mysql_db: name={{ wp_mysql_db }} state=present
 
