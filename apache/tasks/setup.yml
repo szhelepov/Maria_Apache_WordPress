@@ -1,5 +1,5 @@
 ---
-- name: install apache
+#- name: install apache
   yum:  
      name: "{{ item }}" 
      state: present
