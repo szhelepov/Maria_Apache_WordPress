@@ -1,11 +1,7 @@
 ---
 - name: restart mariadb
   service:
-    name: mariadb
+    name: mysqld
     state: restarted
     enabled=yes
     
-- name: reload mariadb
-  service: 
-    name: mariadb
-    state: reloaded
