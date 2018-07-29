@@ -1,15 +1,14 @@
 ---
+- name: Install the MySQL-python through 
+  yum:
+    name: MySQL-python
+    state: present
+
 - name: Install MariaBD
   yum:
     name: "{{ item }}"
     state: present
   with_items: "{{ mariadb_packages }}"
-  
-- name: Install the MySQL-python through 
-  yum:
-    name: MySQL-python
-    state: present
-  
 
 - name: Create mysql database
   mysql_db: name={{ wp_mysql_db }} state=present
