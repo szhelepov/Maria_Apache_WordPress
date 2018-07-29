@@ -1,4 +1,4 @@
 ---
 mariadb_packages:
  - mariadb
- - MySQL-python
+ 
