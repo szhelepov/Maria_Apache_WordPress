@@ -1,5 +1,4 @@
 ---
-mysql_packages:
- - mysql
- - mysql-devel
- - python-devel
+mariadb_packages:
+ - mariadb
+ 
