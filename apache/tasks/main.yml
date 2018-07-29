@@ -1,2 +1,6 @@
 ---
 - include: setup.yml
+
+
+- name: Open firewall 
+  command:  firewall-cmd --permanent --zone=public --add-service=http && firewall-cmd --permanent --zone=public --add-port=80/tcp && firewall-cmd --reload
