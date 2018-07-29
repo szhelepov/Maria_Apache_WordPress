@@ -1,7 +1,8 @@
 - hosts: all
  
   roles:
+    - firewalls
     - mysql
     - apache
     - wordpress
-    - firewalls
+    
