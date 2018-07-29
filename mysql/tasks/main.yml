@@ -15,5 +15,5 @@
     priv=*.*:ALL
 
 - name: Template MariaDB config
-  template: src=templates/my.cnf dest=/etc/my.cnf
+  template: src=templates/my.cnf.j2 dest=/etc/my.cnf
   notify: reload mariadb 
