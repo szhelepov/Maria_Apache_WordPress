@@ -16,4 +16,4 @@
 
 - name: Template MariaDB config
   template: src=templates/my.cnf dest=/etc/my.cnf
-  notify: restart mysql 
+  notify: reload mariadb 
