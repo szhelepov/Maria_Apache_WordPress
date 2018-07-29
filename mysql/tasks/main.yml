@@ -5,10 +5,14 @@
     state: present
   with_items: "{{ mariadb_packages }}"
   
- - name: install python mysql bindings
-  apt: name=python-mysqldb state=installed
-  become: yes
-  become_method: sudo
+- name: Install the MySQL-python through pip
+  sudo: yes
+  pip:
+    name: "{{ item }}"
+    state: forcereinstall
+  with_items:
+    - pip
+    - MySQL-python
 
 - name: Create mysql database
   mysql_db: name={{ wp_mysql_db }} state=present
