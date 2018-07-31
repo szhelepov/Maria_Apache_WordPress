@@ -1,3 +1,0 @@
----
-- name: restar apache
-  service: name=httpd state=restarted
