@@ -1,8 +1,11 @@
-- hosts: apache
- 
-  roles:
-    - firewalls
-    - mysql
-    - apache
-    - wordpress
+---
+name: Deploy Apache_MySql_WordPress
+hosts: all
+become: yes
+
+roles:
+  - firewalls
+  - mysql
+  - apache
+  - wordpress
     
