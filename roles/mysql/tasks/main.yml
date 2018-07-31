@@ -1,0 +1,25 @@
+---
+- name: Install the MySQL-python through 
+  yum:
+    name: MySQL-python
+    state: present
+
+- name: Install MariaBD
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ mariadb_packages }}"
+ 
+- name: Template MariaDB config
+  template: src=templates/my.cnf.j2 dest=/etc/my.cnf
+  notify: reload mariadb 
+
+- name: Create mysql database
+  mysql_db: name={{ wp_mysql_db }} state=present
+
+- name: Create mysql user
+  mysql_user: 
+    name={{ wp_mysql_user }} 
+    password={{ wp_mysql_password }} 
+    priv=*.*:ALL
+
