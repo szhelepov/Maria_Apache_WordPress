@@ -1,5 +1,0 @@
----
-apache_packages:
- - httpd
- - httpd-devel
- - openssl
