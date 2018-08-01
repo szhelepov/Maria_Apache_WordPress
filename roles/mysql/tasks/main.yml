@@ -12,7 +12,7 @@
 
 - name: Template MariaDB config
   template: src=templates/my.cnf.j2 dest=/etc/my.cnf
-  notify: reload mariadb 
+ # notify: reload mariadb 
 
 - name: Create mysql database
   mysql_db: name={{ wp_mysql_db }} state=present
