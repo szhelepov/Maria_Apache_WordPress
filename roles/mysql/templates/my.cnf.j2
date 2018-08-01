@@ -1,42 +1,11 @@
-[client]
-
-# As always, all charsets default to utf8.
-default_character_set = utf8
-
-# The listening socket.
-socket = /var/run/mysqld/mysqld.sock
-
-[mysqld_safe]
-
-# Write the error log to the given file.
-#
-# DEFAULT: syslog
-log_error = /var/log/mysql/error.log
-pid-file=/var/run/mariadb/mariadb.pid
-
 [mysqld]
-
 datadir=/var/lib/mysql
 socket=/var/lib/mysql/mysql.sock
-back_log = 32000
-connect_timeout = 5
-datadir = /var/lib/mysql
-join_buffer_size = 4M
-log_slow_rate_limit = 1000
-max_allowed_packet = 16M
-max_connections = 10
-query_cache_limit = 128K
-tmpdir = /tmp
+user=mysql
 # Disabling symbolic-links is recommended to prevent assorted security risks
 symbolic-links=0
-# Settings user and group are ignored when systemd is used.
-# If you need to run mysqld under a different user or group,
-# customize your systemd unit file for mariadb according to the
-# instructions in http://fedoraproject.org/wiki/Systemd
+port={{ mysql_port }}
 
-
-
-#
-# include all files from the config directory
-#
-!includedir /etc/my.cnf.d
+[mysqld_safe]
+log-error=/var/log/mysqld.log
+pid-file=/var/run/mysqld/mysqld.pid
