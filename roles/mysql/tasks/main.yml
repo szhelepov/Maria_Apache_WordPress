@@ -1,21 +1,15 @@
 ---
-- name: Install the MySQL-python through 
-  yum:
-    name: MySQL-python
-    state: present
-    
-- name: Add mysql repository
-  get_url: url="http://yum.mariadb.org/10.1/centos7-amd64" dest="/etc/yum.repos.d/mysql.repo"
-
- - name: "Import Jenkins key"
-   command: "rpm --import https://yum.mariadb.org/RPM-GPG-KEY-MariaDB"
-
 - name: Install MariaBD
-  yum:
-    name: "{{ item }}"
-    state: present
-  with_items: "{{ mariadb_packages }}"
- 
+  yum: name={{ item }} state=latest
+  with_items:
+    - mariadb-server
+    - mariadb
+    - MySQL-python
+    
+- name: Start MariaDB Service
+  service: name=mariadb state=started enabled=yes
+
+
 - name: Template MariaDB config
   template: src=templates/my.cnf.j2 dest=/etc/my.cnf
   notify: reload mariadb 
