@@ -1,3 +1,5 @@
 ---
 mariadb_packages:
- - mariadb
+ - mariadb-server
+ - php-mysql
+ 
