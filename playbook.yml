@@ -1,12 +1,11 @@
 ---
-name: Deploy Apache_MySql_WordPress
-hosts: all
-become: yes
+- name: Deploy Apache_MySql_WordPress
+  hosts: all
+  become: yes
 
-roles:
-  - apache
-  - mysql
-  - firewalls
-  - wordpress
-  - php 
+  roles:
+    - apache
+    - mysql
+    - wordpress
+  
     
