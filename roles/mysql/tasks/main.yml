@@ -31,3 +31,4 @@
      - localhost
    notify: 
      - restart mariadb
+   ignore_errors: true
