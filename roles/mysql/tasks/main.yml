@@ -9,17 +9,10 @@
 - name: Start MariaDB Service
   service: name=mariadb state=started enabled=yes
   
-- name: Update root password
-  mysql_user: name=root host={{ item }} password={{ mariadb_root_password }} state=present
-  with_items:
-    - 127.0.0.1
-    - ::1
-    - localhost 
-  
-
 - name: Template MariaDB config
   template: src=templates/my.cnf.j2 dest=/etc/my.cnf
- # notify: reload mariadb 
+  notify: 
+    - restart mariadb 
 
 - name: Create mysql database
   mysql_db: name={{ wp_mysql_db }} state=present
@@ -30,3 +23,11 @@
     password={{ wp_mysql_password }} 
     priv=*.*:SELECT
 
+- name: Update root password
+   mysql_user: name=root host={{ item }} password={{ mariadb_root_password }} state=present
+   with_items:
+     - 127.0.0.1
+     - ::1
+     - localhost
+   notify: 
+     - restart mariadb
