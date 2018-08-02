@@ -1,6 +1,6 @@
 ---
 - name: Deploy Apache_MySql_WordPress
-  hosts: webserver
+  hosts: all
   become: yes
 
   roles:
