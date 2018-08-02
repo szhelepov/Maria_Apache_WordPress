@@ -1,6 +1,6 @@
 ---
 wp_mysql_db: wordpress
 wp_mysql_user: wordpress
-wp_mysql_password: wp_db_password
+wp_mysql_password: "{{ wp_db_password }}"
 mysql_port: 3306
-
+mariadb_root_password: "{{ password }}"
