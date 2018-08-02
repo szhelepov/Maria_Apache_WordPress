@@ -24,11 +24,11 @@
     priv=*.*:SELECT
 
 - name: Update root password
-   mysql_user: name=root host={{ item }} password={{ mariadb_root_password }} state=present
-   with_items:
-     - 127.0.0.1
-     - ::1
-     - localhost
-   notify: 
-     - restart mariadb
-   ignore_errors: true
+  mysql_user: name=root host={{ item }} password={{ mariadb_root_password }} state=present
+  with_items:
+    - 127.0.0.1
+    - ::1
+    - localhost
+  notify: 
+    - restart mariadb
+  ignore_errors: true
